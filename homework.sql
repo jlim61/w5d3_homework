@@ -10,6 +10,8 @@ WHERE district = 'Texas';
 -- 1) Answer = Dorothy Taylor, Thelma Murray, Daniel Cabral, Leonard Schofield, Alfredo Mcadams
 -- 5 Customers total that live in Texas
 
+
+
 -- 2) Get all payments above $6.99 with the Customer's Full Name:
 
 SELECT amount AS "Payments", CONCAT(first_name, ' ', last_name) AS "Full Name"
@@ -25,6 +27,12 @@ ORDER BY amount ASC;
 -- Construct a query to display the names of customers who have made payments exceeding $175. Employ subqueries to achieve this result.
 
 SELECT * FROM payment;
+
+SELECT customer_id
+FROM payment
+GROUP BY customer_id
+HAVING SUM(amount) > 175;
+
 SELECT CONCAT(first_name, ' ', last_name) AS "Full Name"
 FROM customer
 WHERE customer_id IN (
