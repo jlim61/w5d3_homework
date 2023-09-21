@@ -1,13 +1,11 @@
 -- 1) List all customers who live in Texas (use JOINs):
-SELECT * FROM address;
-
-SELECT CONCAT(first_name, ' ', last_name) AS "Customer", district AS "State"
+SELECT CONCAT(first_name, ' ', last_name) district
 FROM customer
 JOIN address
-ON address.address_id = customer.customer_id
+ON customer.address_id = address.address_id
 WHERE district = 'Texas';
 
--- 1) Answer = Dorothy Taylor, Thelma Murray, Daniel Cabral, Leonard Schofield, Alfredo Mcadams
+-- 1) Answer = Jennifer Davis, Kim Cruz, Richard Mccrary, Bryan Hardison, Ian Still
 -- 5 Customers total that live in Texas
 
 
